@@ -1,0 +1,7 @@
+{
+  "name": "ionote",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
