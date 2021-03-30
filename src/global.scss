@@ -24,3 +24,17 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.listaCadernosPaginas {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.botaoAcessar {
+    padding-left: 2rem;
+}
+
+.itemLista {
+    padding-top: 2rem;
+}

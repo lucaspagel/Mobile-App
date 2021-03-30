@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title
+        style="align-self:center;"
+    >Cadernos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="listaCadernosPaginas" *ngFor="let caderno of cadernos">
+        <div class="itemLista">
+            <ion-label>{{caderno.nome}}</ion-label>
+            <ion-button class="botaoAcessar" ion-item (click)="acessarCaderno($event, caderno)" color="primary">
+                Acessar
+            </ion-button>
+        </div>
+    </ion-list>
+</ion-content>

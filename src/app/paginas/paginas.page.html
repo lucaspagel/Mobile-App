@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Paginas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+    <br>
+    <ion-label class="cadernoLabel">Caderno Id: {{cadernoId}}</ion-label>
+
+    <ion-list class="listaCadernosPaginas" *ngFor="let pagina of paginasAtuais">
+        <div class="itemLista">
+            <ion-label>{{pagina.nome}}</ion-label>
+            <ion-button class="botaoAcessar" ion-item (click)="acessarPagina($event, pagina)" color="success">
+                Acessar
+            </ion-button>
+        </div>
+    </ion-list>
+</ion-content>
