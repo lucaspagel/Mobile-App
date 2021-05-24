@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { Caderno } from '../interfaces/caderno';
 import { AuthService } from '../services/auth.service';
 import { CadernoService } from '../services/caderno.service';
@@ -13,6 +14,7 @@ export class NovoCadernoPage implements OnInit {
     private cadernoNovo: Caderno = {};
     private loading: any;
     private cadernoId: string = null;
+    private cadernoSubscription: Subscription;
 
     constructor(
         private loadingCtrl: LoadingController,
@@ -23,6 +25,11 @@ export class NovoCadernoPage implements OnInit {
     ) { }
 
     ngOnInit() {
+    }
+
+    ngOnDestroy() {
+        if(this.cadernoSubscription)
+            this.cadernoSubscription.unsubscribe();
     }
 
     async saveCaderno(){

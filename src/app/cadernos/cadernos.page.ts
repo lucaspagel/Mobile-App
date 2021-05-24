@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController, NavParams } from '@ionic/angular';
+import { LoadingController, NavController, NavParams, ToastController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Caderno } from '../interfaces/caderno';
 import { AuthService } from '../services/auth.service';
@@ -21,11 +21,14 @@ export class CadernosPage implements OnInit {
 
     private cadernosAtuais = new Array<Caderno>();
     private cadernoSubscription: Subscription;
+    private loading: any;
 
     constructor(
         private nav: Router,
         private cadernoService: CadernoService,
-        private authService: AuthService
+        private authService: AuthService,
+        private loadingCtrl: LoadingController,
+        private toastCtrl: ToastController
     ){ 
         this.cadernoSubscription = this.cadernoService.getCadernos().subscribe(data =>{
             this.cadernosAtuais = data;
@@ -53,7 +56,21 @@ export class CadernosPage implements OnInit {
         }
     }
 
-    deleteCaderno(idCaderno) {
-        console.log(idCaderno);
+    async deleteCaderno(idCaderno: string) {
+        try {
+            await this.cadernoService.deleteCadernoById(idCaderno);
+        }catch(error) {
+            this.presentToast("Erro ao tentar salvar");
+        }
+    }
+
+    async presentLoading() {
+        this.loading = await this.loadingCtrl.create({ message: 'Aguarde...' });
+        return this.loading.present();
+    }
+
+    async presentToast(message: string) {
+        const toast = await this.toastCtrl.create({ message, duration: 2000 });
+        toast.present();
     }
 }
