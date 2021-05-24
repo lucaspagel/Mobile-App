@@ -1,15 +1,42 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title
-        style="align-self:center;"
-    >Cadernos</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-grid>
+            <ion-row >
+                <ion-col size="2">
+                    <!--<ion-button (click)="logout()" color="danger" expand="block">
+                        Sair
+                    </ion-button>-->
+                    <img src="../../assets/logout-icon.png" style="width : 100% ; height : 100%" (click)="logout()" >
+                </ion-col>
+
+                <ion-title class="ion-text-center">
+                        Cadernos
+                </ion-title>
+
+                <ion-col size="2">
+                    <!--<ion-button routerLink="/details" expand="block">
+                        + caderno
+                    </ion-button>-->
+                    <img src="../../assets/plus-icon.png" style="width : 100% ; height : 100%;" routerLink="/novo-caderno" >
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list class="listaCadernosPaginas" *ngFor="let caderno of cadernos">
+    <div *ngIf="!cadernosAtuais.length" class="ion-text-center" style="padding-top: 10rem;"
+    
+    >
+        <h3 style="color: rgb(112, 112, 112);">Não há registros</h3>
+        <h5 style="color: darkgrey;">Pressione '+' para adicionar cadernos</h5>
+    </div>
+
+    <ion-list class="listaCadernosPaginas" *ngFor="let caderno of cadernosAtuais">
+
         <div class="itemLista">
-            <ion-label>{{caderno.nome}}</ion-label>
+            <ion-icon slot="top" name="trash" style="padding-right: 3rem;" (click)="deleteCaderno(caderno.id)"></ion-icon>
+            <ion-label>{{caderno.name}}</ion-label>
             <ion-button class="botaoAcessar" ion-item (click)="acessarCaderno($event, caderno)" color="primary">
                 Acessar
             </ion-button>

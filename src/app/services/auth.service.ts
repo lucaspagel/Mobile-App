@@ -18,7 +18,7 @@ export class AuthService {
     }
 
     logout() {
-
+        return this.fireAuth.signOut();
     }
 
     getAuth() {

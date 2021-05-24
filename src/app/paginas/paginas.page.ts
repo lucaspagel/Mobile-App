@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Pagina } from '../interfaces/pagina';
 
 @Component({
   selector: 'app-paginas',
@@ -9,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PaginasPage implements OnInit {
 
     cadernoId: number;
-    paginasAtuais: any[];
+    paginasAtt: any[];
+    private paginasAtuais = new Array<Pagina>();
 
     public paginas = [
         { id: 1, cadId: 1, nome: "Página Vazia" },
@@ -24,11 +26,11 @@ export class PaginasPage implements OnInit {
     }
 
     ngOnInit() {
-        this.paginasAtuais = [];
+        this.paginasAtt = [];
 
         for(var i=0; i<this.paginas.length; i++) {
             if(this.paginas[i].cadId == this.cadernoId){
-                this.paginasAtuais.push(this.paginas[i]);
+                this.paginasAtt.push(this.paginas[i]);
             }
         }
     }

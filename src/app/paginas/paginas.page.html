@@ -1,16 +1,34 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>Paginas</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="success">
+        <ion-grid>
+            <ion-row >
+                <ion-col size="2">
+                    <ion-back-button></ion-back-button>
+                </ion-col>
+
+                <ion-title class="ion-text-center">
+                        Páginas
+                </ion-title>
+
+                <ion-col size="2">
+                    <img src="../../assets/plus-icon.png" style="width : 100% ; height : 100%;" (click)="nada()" >
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    
+
     <br>
     <ion-label class="cadernoLabel">Caderno Id: {{cadernoId}}</ion-label>
+
+    <div *ngIf="!paginasAtuais.length" class="ion-text-center" style="padding-top: 10rem;"
+    
+    >
+        <h3 style="color: rgb(112, 112, 112);">Não há registros</h3>
+        <h5 style="color: darkgrey;">Pressione '+' para adicionar páginas</h5>
+    </div>
 
     <ion-list class="listaCadernosPaginas" *ngFor="let pagina of paginasAtuais">
         <div class="itemLista">
