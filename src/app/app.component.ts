@@ -9,7 +9,8 @@ import { FcmService } from './services/fcm.service';
 export class AppComponent {
     constructor(
         private fcmService: FcmService
-    ) { 
-        this.fcmService.initPush(); 
+    ) {
+        // comentado para não crashar no dispositivo, mas funciona no emulador
+        // this.fcmService.initPush(); 
     }
 }
