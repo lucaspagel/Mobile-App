@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { FcmService } from './services/fcm.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+    constructor(
+        private fcmService: FcmService
+    ) { 
+        this.fcmService.initPush(); 
+    }
 }

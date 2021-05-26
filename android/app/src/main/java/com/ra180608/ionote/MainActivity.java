@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.ra180608.ionote;
 
 import android.os.Bundle;
 

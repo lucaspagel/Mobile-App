@@ -44,8 +44,8 @@ export class CadernosPage implements OnInit {
     }
 
     acessarCaderno($event, caderno) {
-        this.nav.navigate(['cadernos/paginas/' + caderno.id]);
-        
+        //this.nav.navigate(['cadernos/paginas/' + caderno.id]);
+        this.nav.navigate(['cadernos/canvas/' + caderno.id]);
     }
 
     async logout() {

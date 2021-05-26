@@ -32,10 +32,11 @@
         <h5 style="color: darkgrey;">Pressione '+' para adicionar cadernos</h5>
     </div>
 
-    <ion-list class="listaCadernosPaginas" *ngFor="let caderno of cadernosAtuais">
+    <ion-list class="listaCadernosPaginas" class="ion-text-center" *ngFor="let caderno of cadernosAtuais">
 
         <div class="itemLista">
-            <ion-icon slot="top" name="trash" style="padding-right: 3rem;" (click)="deleteCaderno(caderno.id)"></ion-icon>
+            <img src="../../assets/trash-icon.png" style="width : 10% ; height : 100%; padding-right: 1rem;" (click)="deleteCaderno(caderno.id)" >
+            <!--<ion-icon slot="top" name="trash" style="padding-right: 3rem;" (click)="deleteCaderno(caderno.id)"></ion-icon>-->
             <ion-label>{{caderno.name}}</ion-label>
             <ion-button class="botaoAcessar" ion-item (click)="acessarCaderno($event, caderno)" color="primary">
                 Acessar

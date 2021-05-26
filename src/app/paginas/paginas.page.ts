@@ -38,4 +38,8 @@ export class PaginasPage implements OnInit {
     acessarPagina($event, pagina){
         this.nav.navigate(['cadernos/paginas/' + this.cadernoId + '/canvas/' + pagina.id]);
     }
+
+    nada() {
+        console.log("cria nova página");
+    }
 }
