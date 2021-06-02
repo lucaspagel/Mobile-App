@@ -1,23 +1,26 @@
 <ion-header>
-  <ion-toolbar color="danger">
-    <ion-grid>
-        <ion-row >
-            <ion-col size="2">
-                <ion-back-button></ion-back-button>
-            </ion-col>
+    <ion-toolbar color="danger">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="2">
+                    <ion-back-button></ion-back-button>
+                </ion-col>
 
-            <ion-title class="ion-text-center">
+                <ion-title class="ion-text-center">
                     Canvas
-            </ion-title>
+                </ion-title>
 
-            <ion-col size="2">
-                
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-  </ion-toolbar>
+                <ion-col size="2">
+                    <img src="../../assets/save-icon.png" style="width : 100% ; height : 100%;" (click)="saveCanvas()" >
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding no-bounce>
+    <canvas #myCanvas (touchstart)="handleStart($event)" (touchmove)="handleMove($event)"
+        (touchend)="handleEnd($event)">
 
+    </canvas>
 </ion-content>
