@@ -2,6 +2,6 @@ export interface Caderno {
     id?: string,
     cadernoNome?: string,
     createdAt?: number,
-    paginas?: Array<Array<number>>,
+    paginas?: Array<number>,
     userId?: string
 }
