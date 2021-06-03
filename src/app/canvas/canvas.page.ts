@@ -14,13 +14,13 @@ import { CadernoService } from '../services/caderno.service';
 export class CanvasPage implements OnInit {
     @ViewChild('myCanvas') canvas: any;
     private cadernoSubscription: Subscription;
-    
+
     canvasElement: any;
     lastX: number;
     lastY: number;
     arrayDesenhos: any[];
     desenho: number[];
-    
+
     cadernoId: string;
     public cadernoAtual: Caderno = {};
     private loading: any;
@@ -110,29 +110,36 @@ export class CanvasPage implements OnInit {
 
     drawDesenho() {
         let ctx = this.canvasElement.getContext('2d');
-        ctx.beginPath();
-        ctx.lineJoin = "round";
         
-        this.lastX = this.desenho[0];
-        this.lastY = this.desenho[1];
-        for(var i = 2; i<this.desenho.length; i+=2) {
-            let currentX = this.desenho[i];
-            let currentY = this.desenho[i+1];
-    
-            // console.log("x: " + currentX + ", y: " + currentY);
-    
-            ctx.moveTo(this.lastX, this.lastY);
-            ctx.lineTo(currentX, currentY);
-            ctx.closePath();
-            ctx.strokeStyle = '#DC143C';
-            ctx.lineWidth = 10;
-            ctx.stroke();
-    
-            // console.log(this.desenho[0] + ':' + this.desenho[1]);
-    
-            this.lastX = currentX;
-            this.lastY = currentY;
+        for (var j = 0; j < this.arrayDesenhos.length; j++) {
+            ctx.beginPath();
+            ctx.lineJoin = "round";
+
+            this.lastX = this.desenho[0];
+            this.lastY = this.desenho[1];
+            for (var i = 2; i < this.desenho.length; i += 2) {
+                let currentX = this.desenho[i];
+                let currentY = this.desenho[i + 1];
+
+                // console.log("x: " + currentX + ", y: " + currentY);
+
+                ctx.moveTo(this.lastX, this.lastY);
+                ctx.lineTo(currentX, currentY);
+                ctx.closePath();
+                ctx.strokeStyle = '#DC143C';
+                ctx.lineWidth = 10;
+                ctx.stroke();
+
+                // console.log(this.desenho[0] + ':' + this.desenho[1]);
+
+                this.lastX = currentX;
+                this.lastY = currentY;
+            }
         }
+    }
+
+    teste() {
+        
     }
 
     async presentLoading() {
