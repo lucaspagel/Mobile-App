@@ -31,26 +31,12 @@ export class CadernoService {
         return this.cadernosCollection.add(caderno);
     }
 
-    getCadernosById(id: string) {
-        return this.cadernosCollection.snapshotChanges().pipe(
-            map(actions => {
-                return actions.map(a => {
-                    console.log(a.payload.doc.data().userId);
-                    console.log(id);
-                    if(a.payload.doc.data().userId == id) {
-                        const data = a.payload.doc.data();
-                        const id = a.payload.doc.id;
-    
-                        return { id, ...data };
-                    }
-                    return;
-                })
-            })
-        );
+    getCaderno(id: string) {
+        return this.cadernosCollection.doc<Caderno>(id).valueChanges();
     }
     
-    updateCadernoById(id: string, caderno: Caderno) {
-        
+    updateCaderno(id: string, caderno: Caderno) {
+        return this.cadernosCollection.doc<Caderno>(id).update(caderno);
     }
 
     deleteCadernoById(id: string) {
