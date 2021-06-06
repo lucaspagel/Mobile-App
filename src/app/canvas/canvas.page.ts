@@ -89,7 +89,7 @@ export class CanvasPage implements OnInit {
 
     handleEnd(ev) {
         // this.arrayDesenhos.push(this.desenho);
-        console.log(this.desenho);
+        // console.log(this.desenho);
         // this.desenho = [];
         this.desenho.push(0);
         this.desenho.push(0);

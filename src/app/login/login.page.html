@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="tertiary">
-        <ion-title style="align-self:center;">Login</ion-title>
+        <ion-title class="ion-text-center">IoNote</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -60,4 +60,14 @@
             </div>
         </ion-slide>
     </ion-slides>
+<!--
+    <ion-button (click)="register()" class="ion-margin-top" color="tertiary" expand="block">
+        <a style="color: lightgray; font-size: 0.7rem;" class="ion-text-center" href="#" onclick="window.open('https://ra180608.page.link/test', '_system', 'location=yes'); return false;"> 
+            Não possui o app? Faça o download agora
+        </a>
+    </ion-button>
+-->
+    <ion-button class="ion-margin-top" (click)="openWebpage('https://ra180608.page.link/test')" color="tertiary" expand="block" style="color: lightgray; font-size: 0.7rem;">
+        Não possui o app? Faça o download agora
+    </ion-button>
 </ion-content>
