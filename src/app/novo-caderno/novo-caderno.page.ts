@@ -37,6 +37,7 @@ export class NovoCadernoPage implements OnInit {
 
         this.cadernoNovo.userId = (await this.authService.getAuth().currentUser).uid;
 
+        this.cadernoNovo.paginas = [];
         this.cadernoNovo.createdAt = new Date().getTime();
 
         try {
